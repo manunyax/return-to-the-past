@@ -10,6 +10,13 @@ body {
   margin: 0;
   min-height: 100vh;
   background: #ffffff;
+  color: #171717;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+body.dark-theme {
+  background: #141414;
+  color: #f6f6f3;
 }
 
 .riddle {
@@ -74,3 +81,31 @@ input {
 
 input:focus { border-color: #171717; }
 input::placeholder { color: #aaaaaa; }
+
+.theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1;
+  border: 1px solid #d4d4d4;
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  font: 0.72rem "Manrope", Arial, sans-serif;
+  letter-spacing: 0.03em;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.theme-toggle:hover { border-color: currentColor; }
+
+body.dark-theme .theme-toggle { border-color: #595959; }
+body.dark-theme label { color: #ababab; }
+body.dark-theme input { border-color: #666666; }
+body.dark-theme input:focus { border-color: #f6f6f3; }
+body.dark-theme input::placeholder { color: #777777; }
+
+@media (max-width: 32rem) {
+  .theme-toggle { top: 1rem; right: 1rem; }
+}
