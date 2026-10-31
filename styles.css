@@ -1,0 +1,76 @@
+:root {
+  color: #171717;
+  background: #ffffff;
+  font-family: "Manrope", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.riddle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  max-width: 42rem;
+  margin: 0 0 2.5rem;
+  font-size: clamp(1.75rem, 4vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -0.045em;
+}
+
+.code {
+  margin: 0;
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.08em;
+}
+
+.binary { font-size: clamp(0.72rem, 1.4vw, 0.98rem); }
+
+.cipher {
+  margin-top: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.answer-form {
+  display: grid;
+  width: min(100%, 22rem);
+  margin-top: 3rem;
+  gap: 0.65rem;
+  text-align: left;
+}
+
+label {
+  color: #747474;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #bdbdbd;
+  border-radius: 0;
+  padding: 0.6rem 0;
+  color: inherit;
+  background: transparent;
+  font: 1rem "DM Mono", monospace;
+  outline: none;
+  transition: border-color 160ms ease;
+}
+
+input:focus { border-color: #171717; }
+input::placeholder { color: #aaaaaa; }
