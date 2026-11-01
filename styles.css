@@ -311,7 +311,7 @@ input::placeholder { color: #aaaaaa; }
 .case-screen--visible { opacity: 1; filter: blur(0); transform: translateY(0); }
 .case-file { width: min(100%, 50rem); margin: 0 auto; }
 .case-header { position: relative; margin-bottom: 2rem; padding: 2.6rem 1.5rem 2rem; border: 1px solid #e7e0d6; border-radius: 1.2rem; background: radial-gradient(ellipse at 50% 0%, #fff 0, #fbf8f2 72%); text-align: center; box-shadow: 0 12px 36px rgba(58,47,31,.045); }
-.case-header h1 { margin: 1rem 0 .35rem; font: 600 clamp(3rem, 8vw, 5.5rem)/.95 "Cormorant Garamond", Georgia, serif; letter-spacing: -.035em; transform: translateX(2rem); }
+.case-header h1 { margin: 1rem 0 .35rem; font: 600 clamp(3rem, 8vw, 5.5rem)/.95 "Cormorant Garamond", Georgia, serif; letter-spacing: -.035em; }
 .case-number { display: inline-block; color: #8a673a; font: 600 .76em/1 "DM Mono", monospace; letter-spacing: -.08em; vertical-align: .04em; text-shadow: 0 1px #fff; }
 .case-subtitle { margin: 0; color: #837c73; font-size: .95rem; letter-spacing: .025em; }
 .case-section { margin: 0 0 1.2rem; padding: clamp(1.25rem, 4vw, 2rem); border: 1px solid #ece7df; border-radius: 1rem; background: rgba(255,255,255,.78); color: #393631; font-size: 1rem; line-height: 1.8; box-shadow: 0 8px 24px rgba(58,47,31,.035); }

@@ -7,6 +7,26 @@ const openCaseButton = document.querySelector('#open-case');
 const caseScreen = document.querySelector('.case-screen');
 const revealCaseAnswer = document.querySelector('#reveal-case-answer');
 const caseAnswer = document.querySelector('#case-answer');
+const questStage = localStorage.getItem('greycat781-quest-stage') || 'start';
+
+function showSavedStage(stage) {
+  if (stage === 'welcome') {
+    riddle.hidden = true;
+    intro.hidden = false;
+    intro.classList.add('intro--visible');
+    intro.querySelector('.intro-message--first').hidden = true;
+    const welcome = intro.querySelector('.intro-message--second');
+    welcome.hidden = false;
+    welcome.classList.add('message--entering');
+  } else if (stage === 'case') {
+    riddle.hidden = true;
+    intro.hidden = true;
+    caseScreen.hidden = false;
+    caseScreen.classList.add('case-screen--visible');
+  }
+}
+
+showSavedStage(questStage);
 
 answerForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -21,6 +41,7 @@ answerForm.addEventListener('submit', (event) => {
   }
 
   feedback.textContent = '';
+  localStorage.setItem('greycat781-quest-stage', 'welcome');
   answerForm.querySelector('button').disabled = true;
 
   riddle.classList.add('riddle--leaving');
@@ -50,6 +71,7 @@ answerForm.addEventListener('submit', (event) => {
 });
 
 openCaseButton.addEventListener('click', () => {
+  localStorage.setItem('greycat781-quest-stage', 'case');
   intro.classList.add('intro--leaving');
   window.setTimeout(() => {
     intro.hidden = true;
