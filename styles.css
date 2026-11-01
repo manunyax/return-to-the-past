@@ -85,14 +85,20 @@ input::placeholder { color: #aaaaaa; }
 .wrong-answer { animation: shake 360ms ease; }
 
 .intro {
+  position: fixed;
+  inset: 0;
   display: grid;
   place-items: center;
-  min-height: 100vh;
+  min-height: 100svh;
   padding: 2rem;
   text-align: center;
+  background: #ffffff;
 }
 
-.intro-message { margin: 0; }
+.intro[hidden], .intro-message[hidden] { display: none; }
+
+.intro-stage { display: grid; place-items: center; width: min(100%, 48rem); }
+.intro-message { grid-area: 1 / 1; width: 100%; margin: 0; }
 
 .intro-message--first {
   max-width: 40rem;
@@ -104,7 +110,6 @@ input::placeholder { color: #aaaaaa; }
 }
 
 .intro-message--second {
-  grid-area: 1 / 1;
   max-width: 48rem;
   font-size: clamp(1rem, 1.8vw, 1.3rem);
   line-height: 1.6;
@@ -128,15 +133,17 @@ input::placeholder { color: #aaaaaa; }
 
 .chapter-button:hover { transform: translateY(-2px); background: #383838; }
 
-.intro--visible .intro-message--first { animation: first-message 4.8s ease forwards; }
-.intro--visible .intro-message--second { animation: second-message 700ms 4.3s ease forwards; }
-.intro--visible .chapter-button { animation: button-enter 500ms 5.1s ease both; }
+.intro--visible .intro-message--first { animation: first-message 700ms ease forwards; }
+.intro-message--first.message--leaving { animation: message-leave 650ms ease forwards; }
+.intro-message--second.message--entering { animation: second-message 700ms ease forwards; }
+.message--entering .chapter-button { animation: button-enter 500ms 900ms ease both; }
 
 @keyframes first-message {
-  0% { opacity: 0; transform: translateY(0.75rem); }
-  14%, 72% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-0.75rem); }
+  from { opacity: 0; transform: translateY(0.75rem); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes message-leave { to { opacity: 0; transform: translateY(-0.5rem); } }
 
 @keyframes second-message {
   from { opacity: 0; transform: translateY(0.75rem); }
@@ -155,4 +162,11 @@ input::placeholder { color: #aaaaaa; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; }
+}
+
+@media (max-height: 42rem) {
+  .intro { padding: 1.25rem; }
+  .intro-message--second { font-size: 0.95rem; line-height: 1.45; }
+  .intro-message--second p { margin-bottom: 0.65rem; }
+  .chapter-button { margin-top: 0.6rem; }
 }

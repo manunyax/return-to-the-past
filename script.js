@@ -18,6 +18,18 @@ answerForm.addEventListener('submit', (event) => {
   window.setTimeout(() => {
     riddle.hidden = true;
     intro.hidden = false;
-    requestAnimationFrame(() => intro.classList.add('intro--visible'));
+    requestAnimationFrame(() => {
+      intro.classList.add('intro--visible');
+      window.setTimeout(() => {
+        const firstMessage = intro.querySelector('.intro-message--first');
+        const secondMessage = intro.querySelector('.intro-message--second');
+        firstMessage.classList.add('message--leaving');
+        window.setTimeout(() => {
+          firstMessage.hidden = true;
+          secondMessage.hidden = false;
+          requestAnimationFrame(() => secondMessage.classList.add('message--entering'));
+        }, 650);
+      }, 3600);
+    });
   }, 450);
 });
