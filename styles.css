@@ -211,23 +211,32 @@ input::placeholder { color: #aaaaaa; }
 .clue-mark { margin-right: .35rem; color: #a98c68; }
 
 .chapter-button {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
-  gap: .65rem;
-  margin-top: 1.1rem;
-  border: 1px solid #292723;
+  gap: .85rem;
+  margin-top: 1.25rem;
+  border: 1px solid rgba(204, 177, 139, .58);
   border-radius: 999px;
-  padding: 0.85rem 1.2rem;
-  color: #ffffff;
-  background: #292723;
+  padding: .8rem .85rem .8rem 1.35rem;
+  color: #faf8f4;
+  background: linear-gradient(120deg, #292723, #40392f 55%, #292723);
   cursor: pointer;
-  font: 600 0.83rem "DM Sans", Arial, sans-serif;
-  transition: transform 240ms ease, background-color 240ms ease, box-shadow 240ms ease;
+  font: 600 .83rem "DM Sans", Arial, sans-serif;
+  letter-spacing: .015em;
+  box-shadow: 0 8px 24px rgba(41,39,35,.12), inset 0 1px rgba(255,255,255,.12);
+  transition: transform 280ms cubic-bezier(.2,.8,.2,1), box-shadow 280ms ease, border-color 280ms ease;
 }
 
-.chapter-button span { color: #d7c3a8; font-family: "DM Mono", monospace; }
-.chapter-button b { margin-left: .35rem; color: #d7c3a8; font-size: 1rem; font-weight: 400; }
-.chapter-button:hover { transform: translateY(-2px); background: #46413a; box-shadow: 0 8px 24px rgba(41,39,35,.16); }
+.chapter-button::before { position: absolute; inset: 0 auto 0 -65%; width: 45%; content: ""; background: linear-gradient(100deg, transparent, rgba(255,255,255,.2), transparent); transform: skewX(-20deg); transition: left 650ms ease; }
+.chapter-button:hover::before { left: 125%; }
+.chapter-button:hover { transform: translateY(-3px); border-color: rgba(218, 194, 160, .9); box-shadow: 0 14px 30px rgba(41,39,35,.2), inset 0 1px rgba(255,255,255,.16); }
+.chapter-button:active { transform: translateY(-1px) scale(.99); }
+.chapter-button__label, .chapter-button__number, .chapter-button__arrow { position: relative; z-index: 1; }
+.chapter-button__number { padding-left: .75rem; border-left: 1px solid rgba(215,195,168,.35); color: #dfc7a6; font: 500 .78rem "DM Mono", monospace; }
+.chapter-button__arrow { display: grid; width: 2rem; height: 2rem; place-items: center; border-radius: 50%; color: #292723; background: #dfc7a6; font-size: 1rem; font-weight: 500; transition: transform 280ms ease; }
+.chapter-button:hover .chapter-button__arrow { transform: translate(2px, -2px); }
 
 .intro--visible .intro-message--first { opacity: 1; filter: blur(0); transform: translateY(0); }
 .intro--visible .progress-line { animation: progress-reveal 1.1s .45s ease forwards; }
