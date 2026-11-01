@@ -62,17 +62,32 @@ h1 {
 }
 
 .answer-button {
+  position: relative;
+  overflow: hidden;
   justify-self: start;
-  border: 1px solid #171717;
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  margin-top: .35rem;
+  border: 1px solid rgba(204, 177, 139, .58);
   border-radius: 999px;
-  padding: 0.65rem 1rem;
-  color: #ffffff;
-  background: #171717;
+  padding: .55rem .6rem .55rem 1.1rem;
+  color: #faf8f4;
+  background: linear-gradient(120deg, #292723, #40392f 55%, #292723);
   cursor: pointer;
-  font: 600 0.8rem "Manrope", Arial, sans-serif;
+  font: 600 .8rem "DM Sans", Arial, sans-serif;
+  box-shadow: 0 7px 20px rgba(41,39,35,.12), inset 0 1px rgba(255,255,255,.12);
+  transition: transform 260ms cubic-bezier(.2,.8,.2,1), box-shadow 260ms ease, border-color 260ms ease;
 }
 
-.answer-button:disabled { opacity: 0.55; cursor: default; }
+.answer-button::before { position: absolute; inset: 0 auto 0 -65%; width: 45%; content: ""; background: linear-gradient(100deg, transparent, rgba(255,255,255,.2), transparent); transform: skewX(-20deg); transition: left 650ms ease; }
+.answer-button span, .answer-button i { position: relative; z-index: 1; }
+.answer-button i { display: grid; width: 1.8rem; height: 1.8rem; place-items: center; border-radius: 50%; color: #292723; background: #dfc7a6; font-size: .9rem; font-style: normal; transition: transform 260ms ease; }
+.answer-button:hover::before { left: 125%; }
+.answer-button:hover { transform: translateY(-2px); border-color: rgba(218, 194, 160, .9); box-shadow: 0 12px 26px rgba(41,39,35,.18), inset 0 1px rgba(255,255,255,.16); }
+.answer-button:hover i { transform: translate(2px, -2px); }
+.answer-button:active { transform: translateY(0) scale(.99); }
+.answer-button:disabled { opacity: .55; cursor: default; transform: none; }
 .answer-feedback { min-height: 1.2em; color: #a33; font-size: 0.8rem; }
 
 label {

@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Mono:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=chapter-button-1" />
+    <link rel="stylesheet" href="styles.css?v=answer-button-1" />
   </head>
   <body>
     <main class="riddle" aria-labelledby="riddle-title">
@@ -20,7 +20,7 @@
       <form class="answer-form">
         <label for="answer">Ваш ответ</label>
         <input id="answer" name="answer" type="text" inputmode="numeric" autocomplete="off" placeholder="Введите ответ" aria-describedby="answer-feedback" />
-        <button class="answer-button" type="submit">Ответить</button>
+        <button class="answer-button" type="submit"><span>Ответить</span><i aria-hidden="true">↗</i></button>
         <span id="answer-feedback" class="answer-feedback" aria-live="polite"></span>
       </form>
     </main>
@@ -43,6 +43,6 @@
         </div>
       </div>
     </section>
-    <script src="script.js?v=liquid-text-2"></script>
+    <script src="script.js?v=answer-button-1"></script>
   </body>
 </html>
