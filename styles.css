@@ -69,6 +69,7 @@ h1 {
   align-items: center;
   gap: .8rem;
   margin-top: .35rem;
+  margin-left: -.6rem;
   border: 1px solid rgba(204, 177, 139, .58);
   border-radius: 999px;
   padding: .55rem .6rem .55rem 1.1rem;
