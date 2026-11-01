@@ -261,10 +261,6 @@ input::placeholder { color: #aaaaaa; }
   75% { transform: translateX(0.35rem); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; }
-}
-
 @media (max-height: 42rem) {
   .intro { padding: 1.25rem; }
   .quest-copy p { margin-bottom: 0.65rem; font-size: .9rem; line-height: 1.45; }
