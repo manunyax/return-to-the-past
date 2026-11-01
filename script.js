@@ -26,16 +26,21 @@ answerForm.addEventListener('submit', (event) => {
     intro.hidden = false;
     requestAnimationFrame(() => {
       intro.classList.add('intro--visible');
+
+      // Keep the first message on screen, then finish its fade before revealing the next one.
       window.setTimeout(() => {
         const firstMessage = intro.querySelector('.intro-message--first');
         const secondMessage = intro.querySelector('.intro-message--second');
-        secondMessage.hidden = false;
-        requestAnimationFrame(() => secondMessage.classList.add('message--entering'));
-        window.setTimeout(() => firstMessage.classList.add('message--leaving'), 180);
+        firstMessage.classList.add('message--leaving');
+
         window.setTimeout(() => {
           firstMessage.hidden = true;
-        }, 1050);
-      }, 3600);
+          secondMessage.hidden = false;
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => secondMessage.classList.add('message--entering'));
+          });
+        }, 1250);
+      }, 3200);
     });
   }, 450);
 });

@@ -163,6 +163,8 @@ input::placeholder { color: #aaaaaa; }
 .intro-message--first {
   max-width: 40rem;
   opacity: 0;
+  filter: blur(6px);
+  transform: translateY(.8rem);
 }
 
 .intro h2 {
