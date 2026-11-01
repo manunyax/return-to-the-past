@@ -4,6 +4,21 @@ const riddle = document.querySelector('.riddle');
 const intro = document.querySelector('.intro');
 const feedback = document.querySelector('#answer-feedback');
 
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  const cursorText = document.querySelectorAll(
+    'h1, h2, .code, label, .answer-caption, .quest-copy p, .eyebrow'
+  );
+
+  cursorText.forEach((element) => {
+    element.classList.add('cursor-gold');
+    element.addEventListener('pointermove', (event) => {
+      const bounds = element.getBoundingClientRect();
+      const position = ((event.clientX - bounds.left) / bounds.width) * 100;
+      element.style.setProperty('--cursor-x', `${Math.max(0, Math.min(100, position))}%`);
+    });
+  });
+}
+
 answerForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
