@@ -23,6 +23,8 @@ body {
   text-align: center;
 }
 
+.riddle[hidden] { display: none; }
+
 .riddle--leaving {
   opacity: 0;
   transform: scale(0.99);
@@ -58,6 +60,20 @@ h1 {
   gap: 0.65rem;
   text-align: left;
 }
+
+.answer-button {
+  justify-self: start;
+  border: 1px solid #171717;
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  color: #ffffff;
+  background: #171717;
+  cursor: pointer;
+  font: 600 0.8rem "Manrope", Arial, sans-serif;
+}
+
+.answer-button:disabled { opacity: 0.55; cursor: default; }
+.answer-feedback { min-height: 1.2em; color: #a33; font-size: 0.8rem; }
 
 label {
   color: #747474;
