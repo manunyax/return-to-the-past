@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Mono:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=persist-stage-center-title-1" />
+    <link rel="stylesheet" href="styles.css?v=case01-answer-1" />
   </head>
   <body>
     <main class="riddle" aria-labelledby="riddle-title">
@@ -95,13 +95,23 @@
           <p>Необходимо провести комплексный анализ имеющихся сведений, установить возможное значение обнаруженных предметов и определить, какое обстоятельство объединяет все представленные материалы.</p>
           <p class="case-conclusion"><strong>Итог расследования должен содержать конкретный ответ — имя и фамилию убийцы.</strong></p>
         </section>
-        <div class="case-answer">
+        <form class="case-answer" id="case-answer-form">
           <label for="case-answer">Ваш вывод по делу</label>
           <input id="case-answer" name="case-answer" type="text" autocomplete="off" placeholder="Введите ответ" hidden />
           <button class="answer-button" id="reveal-case-answer" type="button"><span>Ввести ответ</span><i aria-hidden="true">↗</i></button>
-        </div>
+          <button class="answer-button" id="submit-case-answer" type="submit" hidden><span>Ответить</span><i aria-hidden="true">↗</i></button>
+          <span id="case-answer-feedback" class="answer-feedback" aria-live="polite"></span>
+        </form>
       </article>
     </main>
-    <script src="script.js?v=persist-stage-center-title-1"></script>
+    <section class="case-success" aria-live="polite" hidden>
+      <div class="case-success__content">
+        <span class="eyebrow">ДЕЛО 01 <i></i> РАСКРЫТО</span>
+        <h2>Верно<span class="period">.</span></h2>
+        <p>Убийцей оказался любимый герой Антона в прошлом.</p>
+        <button class="chapter-button case-next-button" type="button" hidden><span class="chapter-button__label">Перейти к делу</span><span class="chapter-button__number">№ 02</span><span class="chapter-button__arrow" aria-hidden="true">↗</span></button>
+      </div>
+    </section>
+    <script src="script.js?v=case01-answer-1"></script>
   </body>
 </html>

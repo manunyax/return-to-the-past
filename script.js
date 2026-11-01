@@ -7,6 +7,11 @@ const openCaseButton = document.querySelector('#open-case');
 const caseScreen = document.querySelector('.case-screen');
 const revealCaseAnswer = document.querySelector('#reveal-case-answer');
 const caseAnswer = document.querySelector('#case-answer');
+const caseAnswerForm = document.querySelector('#case-answer-form');
+const caseAnswerFeedback = document.querySelector('#case-answer-feedback');
+const submitCaseAnswer = document.querySelector('#submit-case-answer');
+const caseSuccess = document.querySelector('.case-success');
+const caseNextButton = document.querySelector('.case-next-button');
 const questStage = localStorage.getItem('greycat781-quest-stage') || 'start';
 
 function showSavedStage(stage) {
@@ -23,6 +28,14 @@ function showSavedStage(stage) {
     intro.hidden = true;
     caseScreen.hidden = false;
     caseScreen.classList.add('case-screen--visible');
+  } else if (stage === 'case02') {
+    riddle.hidden = true;
+    intro.hidden = true;
+    caseScreen.hidden = true;
+    caseSuccess.hidden = false;
+    caseSuccess.classList.add('case-success--visible');
+    caseNextButton.hidden = false;
+    caseNextButton.classList.add('case-next-button--visible');
   }
 }
 
@@ -84,8 +97,35 @@ openCaseButton.addEventListener('click', () => {
 revealCaseAnswer.addEventListener('click', () => {
   caseAnswer.hidden = false;
   revealCaseAnswer.hidden = true;
+  submitCaseAnswer.hidden = false;
   requestAnimationFrame(() => {
     caseAnswer.classList.add('case-answer--visible');
     caseAnswer.focus();
   });
+});
+
+caseAnswerForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const answer = caseAnswer.value.trim().toLowerCase().replace(/\s+/g, '');
+  if (answer !== 'nagasiren') {
+    caseAnswerFeedback.textContent = 'Ответ не подошёл. Проверьте имя героя.';
+    caseAnswer.classList.remove('wrong-answer');
+    void caseAnswer.offsetWidth;
+    caseAnswer.classList.add('wrong-answer');
+    return;
+  }
+
+  localStorage.setItem('greycat781-quest-stage', 'case02');
+  caseScreen.classList.add('case-screen--leaving');
+  window.setTimeout(() => {
+    caseScreen.hidden = true;
+    caseSuccess.hidden = false;
+    requestAnimationFrame(() => {
+      caseSuccess.classList.add('case-success--visible');
+      window.setTimeout(() => {
+        caseNextButton.hidden = false;
+        requestAnimationFrame(() => caseNextButton.classList.add('case-next-button--visible'));
+      }, 2600);
+    });
+  }, 700);
 });
