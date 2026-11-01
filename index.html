@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Mono:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=case-01-2" />
+    <link rel="stylesheet" href="styles.css?v=case-audio-1" />
   </head>
   <body>
     <main class="riddle" aria-labelledby="riddle-title">
@@ -67,6 +67,16 @@
         <section class="case-section">
           <h2>Результаты осмотра электронных носителей информации</h2>
           <p>В ходе исследования персонального компьютера был обнаружен аудиофайл неизвестного происхождения. Ввиду повреждения файла его содержание было искаженно.</p>
+          <div class="audio-evidence">
+            <div class="audio-evidence__heading">
+              <span class="audio-evidence__index">АУДИОФАЙЛ · 01</span>
+              <span class="audio-evidence__note">Запись из материалов дела</span>
+            </div>
+            <audio controls preload="metadata" aria-label="Прослушать аудиозапись из материалов дела">
+              <source src="case-recording.mp3" type="audio/mpeg" />
+              Ваш браузер не поддерживает воспроизведение аудио.
+            </audio>
+          </div>
           <p>Также установлено, что на момент последнего использования компьютера была запущена игра Dota 2. Сведения о персонаже, выбранном погибшим в последней игровой сессии, в доступных материалах отсутствуют.</p>
         </section>
         <section class="case-section">
@@ -92,6 +102,6 @@
         </div>
       </article>
     </main>
-    <script src="script.js?v=case-01-1"></script>
+    <script src="script.js?v=case-audio-1"></script>
   </body>
 </html>
