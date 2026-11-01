@@ -211,10 +211,10 @@ input::placeholder { color: #aaaaaa; }
 .chapter-button b { margin-left: .35rem; color: #d7c3a8; font-size: 1rem; font-weight: 400; }
 .chapter-button:hover { transform: translateY(-2px); background: #46413a; box-shadow: 0 8px 24px rgba(41,39,35,.16); }
 
-.intro--visible .intro-message--first { animation: first-message 700ms ease forwards; }
+.intro--visible .intro-message--first { animation: first-message 900ms cubic-bezier(.2,.7,.25,1) forwards; }
 .intro--visible .progress-line { animation: progress-reveal 1.1s .45s ease forwards; }
-.intro-message--first.message--leaving { animation: message-leave 650ms ease forwards; }
-.intro-message--second.message--entering { animation: second-message 1s cubic-bezier(.2,.75,.25,1) forwards; }
+.intro--visible .intro-message--first.message--leaving { animation: message-leave 900ms cubic-bezier(.55,0,.8,.35) forwards; }
+.intro-message--second.message--entering { animation: second-message 1100ms cubic-bezier(.16,1,.3,1) both; }
 .message--entering .chapter-button { animation: button-enter 500ms 900ms ease both; }
 
 @keyframes first-message {
@@ -222,12 +222,15 @@ input::placeholder { color: #aaaaaa; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes message-leave { to { opacity: 0; transform: translateY(-0.5rem); } }
+@keyframes message-leave {
+  from { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+  to { opacity: 0; filter: blur(5px); transform: translateY(-.7rem) scale(.985); }
+}
 @keyframes progress-reveal { to { transform: scaleX(1); } }
 
 @keyframes second-message {
-  from { opacity: 0; transform: translateY(0.75rem); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; filter: blur(8px); transform: translateY(1.1rem) scale(.985); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
 }
 
 @keyframes button-enter {
