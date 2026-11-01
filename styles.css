@@ -23,6 +23,12 @@ body {
   text-align: center;
 }
 
+.riddle--leaving {
+  opacity: 0;
+  transform: scale(0.99);
+  transition: opacity 450ms ease, transform 450ms ease;
+}
+
 h1 {
   max-width: 42rem;
   margin: 0 0 2.5rem;
@@ -75,3 +81,78 @@ input {
 
 input:focus { border-color: #171717; }
 input::placeholder { color: #aaaaaa; }
+
+.wrong-answer { animation: shake 360ms ease; }
+
+.intro {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.intro-message { margin: 0; }
+
+.intro-message--first {
+  max-width: 40rem;
+  font-size: clamp(1.5rem, 3vw, 2.65rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  opacity: 0;
+}
+
+.intro-message--second {
+  grid-area: 1 / 1;
+  max-width: 48rem;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(0.75rem);
+}
+
+.intro-message--second p { margin: 0 0 1.1rem; }
+
+.chapter-button {
+  margin-top: 1.35rem;
+  border: 1px solid #171717;
+  border-radius: 999px;
+  padding: 0.85rem 1.2rem;
+  color: #ffffff;
+  background: #171717;
+  cursor: pointer;
+  font: 600 0.85rem "Manrope", Arial, sans-serif;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.chapter-button:hover { transform: translateY(-2px); background: #383838; }
+
+.intro--visible .intro-message--first { animation: first-message 4.8s ease forwards; }
+.intro--visible .intro-message--second { animation: second-message 700ms 4.3s ease forwards; }
+.intro--visible .chapter-button { animation: button-enter 500ms 5.1s ease both; }
+
+@keyframes first-message {
+  0% { opacity: 0; transform: translateY(0.75rem); }
+  14%, 72% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-0.75rem); }
+}
+
+@keyframes second-message {
+  from { opacity: 0; transform: translateY(0.75rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes button-enter {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  25% { transform: translateX(-0.35rem); }
+  75% { transform: translateX(0.35rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; }
+}

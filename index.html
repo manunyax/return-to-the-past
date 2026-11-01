@@ -19,8 +19,25 @@
       <p class="code cipher">C+2 0F WB</p>
       <form class="answer-form" action="#" method="get">
         <label for="answer">Ваш ответ</label>
-        <input id="answer" name="answer" type="text" autocomplete="off" placeholder="Введите ответ" />
+        <input id="answer" name="answer" type="text" inputmode="numeric" autocomplete="off" placeholder="Введите ответ" />
       </form>
     </main>
+    <section class="intro" aria-live="polite" hidden>
+      <p class="intro-message intro-message--first">
+        Верно — это дата создания сервера greycat781
+      </p>
+      <div class="intro-message intro-message--second">
+        <p>
+          Добро пожаловать в квест по серверу — у вас будут главы, каждая связана с основными
+          участниками сервера. Ваша задача — отгадать все загадки про каждого участника и в конце
+          решить главную, самую тяжёлую загадку.
+        </p>
+        <p>
+          Неизвестно, будут ли связаны предыдущие ответы с основной загадкой или нет. Цепляйтесь за всё.
+        </p>
+        <button class="chapter-button" type="button">Перейти к делу №01</button>
+      </div>
+    </section>
+    <script src="script.js"></script>
   </body>
 </html>
