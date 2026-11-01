@@ -160,6 +160,7 @@ input::placeholder { color: #aaaaaa; }
 @keyframes aurora-drift { to { transform: translate(8%, 5%) scale(1.13); } }
 
 .intro[hidden], .intro-message[hidden] { display: none; }
+.intro--leaving { opacity: 0; filter: blur(6px); transform: scale(.985); transition: opacity 650ms ease, filter 650ms ease, transform 650ms ease; }
 
 .intro-stage { position: relative; z-index: 1; display: grid; place-items: center; width: min(100%, 48rem); min-height: min(70vh, 36rem); }
 .intro-message { grid-area: 1 / 1; width: 100%; margin: 0; transition: opacity 1.2s ease, transform 1.2s ease, filter 1.2s ease; }
@@ -295,4 +296,39 @@ input::placeholder { color: #aaaaaa; }
 
 @media (prefers-reduced-motion: reduce) {
   .intro--visible::before, .intro--visible::after { animation: none; opacity: .7; }
+}
+
+.case-screen[hidden] { display: none; }
+.case-screen {
+  min-height: 100vh;
+  padding: clamp(2rem, 6vw, 5.5rem) 1.25rem;
+  background: #fbfaf8;
+  opacity: 0;
+  filter: blur(7px);
+  transform: translateY(1rem);
+  transition: opacity 1s ease, filter 1s ease, transform 1s ease;
+}
+.case-screen--visible { opacity: 1; filter: blur(0); transform: translateY(0); }
+.case-file { width: min(100%, 48rem); margin: 0 auto; }
+.case-header { margin-bottom: 3rem; padding-bottom: 1.75rem; border-bottom: 1px solid #e7e0d6; text-align: center; }
+.case-header h1 { margin: 1rem 0 .35rem; font: 600 clamp(3rem, 8vw, 5.5rem)/.95 "Cormorant Garamond", Georgia, serif; letter-spacing: -.035em; }
+.case-subtitle { margin: 0; color: #837c73; font-size: .95rem; letter-spacing: .025em; }
+.case-section { margin: 0 0 2.5rem; color: #393631; font-size: 1rem; line-height: 1.8; }
+.case-section h2 { margin: 0 0 1rem; color: #292723; font: 600 clamp(1.8rem, 4vw, 2.5rem)/1.05 "Cormorant Garamond", Georgia, serif; }
+.case-section p { margin: 0 0 1rem; }
+.case-section ol { display: grid; gap: .6rem; margin: 1rem 0 0; padding-left: 1.4rem; }
+.case-section li { padding-left: .35rem; }
+.case-section li::marker { color: #a98c68; font-family: "DM Mono", monospace; font-size: .9em; }
+.case-section--final { padding-top: 1.5rem; border-top: 1px solid #e7e0d6; }
+.case-conclusion { margin-top: 1.5rem !important; padding: 1rem 1.2rem; border-left: 2px solid #b69a78; background: #f3f0eb; }
+.case-answer { display: grid; justify-items: start; gap: .8rem; margin: 3.25rem 0 1rem; padding: 1.5rem; border: 1px solid #e7e0d6; border-radius: 1rem; background: #fff; }
+.case-answer input[hidden] { display: none; }
+.case-answer input { max-width: 28rem; }
+.case-answer input:not([hidden]) { animation: second-message 700ms ease both; }
+.case-answer label { color: #625f5b; }
+
+@media (max-width: 38rem) {
+  .case-screen { padding: 2rem 1.1rem; }
+  .case-header { margin-bottom: 2rem; }
+  .case-section { font-size: .94rem; line-height: 1.7; }
 }

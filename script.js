@@ -3,6 +3,10 @@ const answerInput = document.querySelector('#answer');
 const riddle = document.querySelector('.riddle');
 const intro = document.querySelector('.intro');
 const feedback = document.querySelector('#answer-feedback');
+const openCaseButton = document.querySelector('#open-case');
+const caseScreen = document.querySelector('.case-screen');
+const revealCaseAnswer = document.querySelector('#reveal-case-answer');
+const caseAnswer = document.querySelector('#case-answer');
 
 answerForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -43,4 +47,23 @@ answerForm.addEventListener('submit', (event) => {
       }, 3200);
     });
   }, 450);
+});
+
+openCaseButton.addEventListener('click', () => {
+  intro.classList.add('intro--leaving');
+  window.setTimeout(() => {
+    intro.hidden = true;
+    caseScreen.hidden = false;
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    requestAnimationFrame(() => caseScreen.classList.add('case-screen--visible'));
+  }, 650);
+});
+
+revealCaseAnswer.addEventListener('click', () => {
+  caseAnswer.hidden = false;
+  revealCaseAnswer.hidden = true;
+  requestAnimationFrame(() => {
+    caseAnswer.classList.add('case-answer--visible');
+    caseAnswer.focus();
+  });
 });
