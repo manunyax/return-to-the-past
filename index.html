@@ -7,10 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital@0;1&family=Manrope:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Mono:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=quest-2" />
+    <link rel="stylesheet" href="styles.css?v=iridescent-1" />
   </head>
   <body>
     <main class="riddle" aria-labelledby="riddle-title">
@@ -26,22 +26,23 @@
     </main>
     <section class="intro" aria-live="polite" hidden>
       <div class="intro-stage">
-        <p class="intro-message intro-message--first">
-          Верно — это дата создания сервера greycat781
-        </p>
+        <div class="intro-message intro-message--first">
+          <span class="eyebrow">ДЕЛО 00 <i></i> ОТВЕТ ПРИНЯТ</span>
+          <h2>Верно<span class="period">.</span></h2>
+          <p class="answer-caption">Это дата создания сервера <strong>greycat781</strong></p>
+          <span class="progress-line" aria-hidden="true"></span>
+        </div>
         <div class="intro-message intro-message--second" hidden>
-        <p>
-          Добро пожаловать в квест по серверу — у вас будут главы, каждая связана с основными
-          участниками сервера. Ваша задача — отгадать все загадки про каждого участника и в конце
-          решить главную, самую тяжёлую загадку.
-        </p>
-        <p>
-          Неизвестно, будут ли связаны предыдущие ответы с основной загадкой или нет. Цепляйтесь за всё.
-        </p>
-        <button class="chapter-button" type="button">Перейти к делу №01</button>
+          <span class="eyebrow">ДЕЛО 01 <i></i> НАЧАЛО КВЕСТА</span>
+          <h2>Добро пожаловать<br />в квест по серверу</h2>
+          <div class="quest-copy">
+            <p>Вас ждут главы, каждая из которых связана с одним из основных участников сервера. Отгадайте загадку о каждом участнике, чтобы в конце добраться до главной — самой сложной — загадки.</p>
+            <p class="clue-note"><span class="clue-mark">*</span> Неизвестно, связаны ли предыдущие ответы с главной загадкой. <strong>Цепляйтесь за всё.</strong></p>
+          </div>
+          <button class="chapter-button" type="button">Перейти к делу <span>№ 01</span><b aria-hidden="true">↗</b></button>
         </div>
       </div>
     </section>
-    <script src="script.js?v=quest-2"></script>
+    <script src="script.js?v=iridescent-1"></script>
   </body>
 </html>
