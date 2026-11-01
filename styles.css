@@ -167,6 +167,21 @@ input::placeholder { color: #aaaaaa; }
   transform: translateY(.8rem);
 }
 
+.intro--visible .intro-message--first h2,
+.intro-message--second.message--entering h2 {
+  color: transparent;
+  background: linear-gradient(105deg, #24211e 0%, #24211e 34%, #d0b58e 48%, #fff3df 52%, #24211e 66%, #24211e 100%);
+  background-size: 240% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: liquid-shimmer 2.4s ease-in-out both;
+}
+
+@keyframes liquid-shimmer {
+  from { background-position: 100% 0; }
+  to { background-position: 0 0; }
+}
+
 .intro h2 {
   margin: 1.35rem 0 .55rem;
   font-family: "Cormorant Garamond", Georgia, serif;
